@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rastgele Sayı Üretici</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon2.png">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+  <!-- Create Top Bar for Help & Instructions -->
+  <div class="top-bar">
+    <div class="title-text">Rastgele Sayı Üretici</div>
+    <div class="tabs">
+      <button class="tab-button" onclick="showAlert('Home')">Ana Sayfa</button>
+      <button class="tab-button" onclick="showAlert('Instructions')">Talimatlar</button>
+      <button class="tab-button" onclick="showAlert('Contact')">İletişim</button>
+    </div>
+  </div>
+
+  <!-- Error Message if participantID is missing -->
+  <div id="error-message" style="display: none; color: #D32F2F; font-size: 24px; font-weight: bold;">
+    Hata: Katılımcı Kimliğinizi alamadık. Lütfen yardım için BeSample üzerinden bizimle iletişime geçin.
+  </div>
+
+  <!-- Create Title and Text Container for Instructions -->
+  <div class="title-container">
+    <h1><strong> Rastgele Sayı Üretici</strong></h1>
+    <h2>Bu oyun için rastgele bir sayıya ihtiyacınız olacak. Aşağıdaki butona basarak rastgele bir sayı oluşturun.</h2>
+    <h2>Sayı oluşturduktan sonra, çıkan kutuya yazın ve ardından "gönder" butonuna tıklayın. Sayınızı hatırlamak için not alabilirsiniz.</h2>
+  </div>
+
+  <!-- Create Number Display and Button -->
+  <div id="number-display-container">
+    <div id="number-display"></div>
+  </div>
+  <button id="generateButton" onclick="generateNumber()">Sayıyı Oluştur</button>
+
+  <!-- Input Number Box (initially hidden) -->
+  <div id="inputBox" class="input-container" style="display: none;">
+    <input type="number" id="numberInput" placeholder="Sayıyı girin">
+    <button onclick="submitNumber()">Gönder</button>
+  </div>
+
+  <!-- Success Message -->
+  <div id="successMessage" style="display: none;" class="success-message">
+    Sayı başarıyla gönderildi
+  </div>
+
+  <button id="linkButton" style="display: none;" onclick="goToLink()">Çalışmaya geri dön</button>
+
+  <script src="script.js"></script>
+
+  <!-- Create Bottom Bar -->
+  <div class="bottom-bar">
+    <div class="title-text2">University of Dundee</div>
+  </div>
+
+  <!-- Form to Submit Data -->
+  <div class="outcome" style="display: none;">
+    <form name="submit-to-google-sheet">
+      <input type="text" name="participantID" id="participantID" required>
+      <input type="number" name="generatedNumber" id="generatedNumber" required>
+      <input type="number" name="inputNumber" id="inputNumber" required>
+      <button type="submit" class="btn" style="display: none;">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>
